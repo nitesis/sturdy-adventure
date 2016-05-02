@@ -16,31 +16,31 @@
         android:textStyle="bold"
         android:text="@string/text_field_activity_connect" />
 
-    <android.support.design.widget.TextInputEditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/labelEditIP"
-        android:layout_above="@id/editIP"
-        android:text="@string/edit_IPAdress"/>
+        android:text="@string/edit_IPAdress"
+        android:layout_above="@+id/editIP"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editIP"
-        android:layout_above="@id/labelEditPort"/>
+        android:layout_above="@+id/labelEditPort"/>
 
-    <android.support.design.widget.TextInputEditText
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/labelEditPort"
-        android:layout_above="@id/editPort"
-        android:text="@string/edit_IPPort"/>
+        android:text="@string/edit_IPPort"
+        android:layout_above="@+id/editPort"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editPort"
-        android:layout_above="@id/button"/>
+        android:layout_above="@+id/button"/>
 
 
     <Button
