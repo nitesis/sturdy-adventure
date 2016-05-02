@@ -3,4 +3,5 @@
     <string name="title_activity_connect">ConnectActivity</string>
     <string name="edit_IPAdress">IPAdress</string>
     <string name="text_field_activity_connect">Hi, press button to connect to the labyrinth with the default settings shown below, otherwise edit the fields.</string>
+    <string name="edit_IPPort">IP Port</string>
 </resources>

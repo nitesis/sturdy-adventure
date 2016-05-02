@@ -18,9 +18,30 @@
 
     <android.support.design.widget.TextInputEditText
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/labelEditIP"
+        android:layout_above="@id/editIP"
         android:text="@string/edit_IPAdress"/>
-    
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editIP"
+        android:layout_above="@id/labelEditPort"/>
+
+    <android.support.design.widget.TextInputEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/labelEditPort"
+        android:layout_above="@id/editPort"
+        android:text="@string/edit_IPPort"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editPort"
+        android:layout_above="@id/button"/>
+
 
     <Button
         android:layout_width="fill_parent"
