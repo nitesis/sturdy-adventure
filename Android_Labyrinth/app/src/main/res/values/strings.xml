@@ -5,4 +5,6 @@
     <string name="edit_IPAdress">IP Address:</string>
     <string name="edit_IPPort">IP Port:</string>
     <string name="btnConnect">Connect</string>
+    <string name="default_port">12002</string>
+    <string name="default_ip">10.0.2.2</string>
 </resources>

@@ -8,7 +8,6 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.Toast;
 
 public class ClickView extends View {
 
@@ -19,18 +18,15 @@ public class ClickView extends View {
     private float x_factor = 1;
     private float y_factor = 1;
 
-    private boolean lineTo = false;
-    private float lineToX = 0;
-    private float lineToY = 0;
+    private boolean lineDrawEnabled = false;
+    private float clickPosX = 0;
+    private float clickPosY = 0;
 
     private DisplayMetrics displayMetrics;
 
 
-    public ClickView(final Context context, DisplayMetrics displayMetrics) {
+    public ClickView(final Context context) {
         super(context);
-
-        this.displayMetrics = displayMetrics;
-        calculateDisplaySize();
 
         // create the Paint and set its color
         paint = new Paint();
@@ -44,12 +40,7 @@ public class ClickView extends View {
                 float y = motionEvent.getY();
                 setXYParams(x, y);
 
-                Log.d(TAG, "x clicked " + x);
-                Log.d(TAG, "y clicked " + y);
-
-                // Show a message with the coordinates in 180/180
-                Toast toast = Toast.makeText(context, "x:" + (int)(x/x_factor) + " y: " + (int)(y/y_factor), Toast.LENGTH_SHORT);
-                toast.show();
+                Log.d(TAG, "clicked (" + x + "/" + y +")");
 
                 // Invalidate the paint area and redraw
                 invalidate();
@@ -74,11 +65,17 @@ public class ClickView extends View {
         paint.setColor(Color.YELLOW);
 
         // Draw a line to the selected point
-        if (lineTo) {
-            Log.d(TAG, "Drawing line");
-            canvas.drawLine(displayMetrics.widthPixels/2f, displayMetrics.heightPixels/2f, lineToX, lineToY, paint);
-            canvas.drawCircle(lineToX, lineToY, 8, paint);
+        if (lineDrawEnabled) {
+            canvas.drawLine(displayMetrics.widthPixels/2f, displayMetrics.heightPixels/2f, clickPosX, clickPosY, paint);
+            canvas.drawCircle(clickPosX, clickPosY, 8, paint);
+            canvas.drawText("(" + clickPosX + "/" + clickPosY + ")", 8, 13, paint);
+            canvas.drawText("(" + (int)(clickPosX /x_factor) + "/" + (int)(clickPosY /y_factor) + ")", 8, 26, paint);
         }
+    }
+
+    public void setDisplayMetrics(DisplayMetrics displayMetrics) {
+        this.displayMetrics = displayMetrics;
+        calculateDisplaySize();
     }
 
     private void calculateDisplaySize() {
@@ -90,9 +87,9 @@ public class ClickView extends View {
     }
 
     private void setXYParams(float x, float y) {
-        lineTo = true;
+        lineDrawEnabled = true;
 
-        this.lineToX = x;
-        this.lineToY = y;
+        this.clickPosX = x;
+        this.clickPosY = y;
     }
 }
