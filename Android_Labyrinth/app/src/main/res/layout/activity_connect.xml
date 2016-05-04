@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/editIP"
+        android:hint="@string/default_ip"
         android:layout_above="@+id/labelEditPort"/>
 
     <TextView
@@ -34,6 +35,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/labelEditPort"
         android:text="@string/edit_IPPort"
+        android:hint="@string/default_port"
         android:layout_above="@+id/editPort"/>
 
     <EditText

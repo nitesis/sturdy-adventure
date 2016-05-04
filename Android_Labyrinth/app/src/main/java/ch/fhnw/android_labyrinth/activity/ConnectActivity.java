@@ -7,7 +7,6 @@ import android.view.View;
 import android.widget.EditText;
 
 import ch.fhnw.android_labyrinth.R;
-import ch.fhnw.android_labyrinth.activity.MainActivity;
 
 public class ConnectActivity extends AppCompatActivity {
 
@@ -38,9 +37,7 @@ public class ConnectActivity extends AppCompatActivity {
 
         EditText ip = (EditText) findViewById(R.id.editIP);
         EditText port = (EditText) findViewById(R.id.editPort);
-
-
-
+        
         // call activity using an explicit intent
         Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(EXTRA_IP_ADDRESS, ip != null ? "" + ip.getText() : DEFAULT_IP);
